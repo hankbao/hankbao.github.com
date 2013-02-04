@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Hank's Steps]]></title>
+  <title><![CDATA[Steps of a Sojourner]]></title>
   <link href="http://blog.ztap.net/atom.xml" rel="self"/>
   <link href="http://blog.ztap.net/"/>
-  <updated>2013-02-04T17:23:10+08:00</updated>
+  <updated>2013-02-04T17:45:43+08:00</updated>
   <id>http://blog.ztap.net/</id>
   <author>
     <name><![CDATA[Hank Bao]]></name>
