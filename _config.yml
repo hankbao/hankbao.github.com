@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://hankbao.github.com
+url: http://blog.ztap.net
 title: Hank's Steps
 subtitle: A place to trace my steps.
 author: Hank Bao
@@ -79,6 +79,7 @@ google_plus_one_size: medium
 # Hidden: No visible button, just add author information to search results
 googleplus_user: '110796053738665792614'
 googleplus_hidden: false
+googleplus_image_size: 32
 
 # Pinboard
 pinboard_user:
@@ -91,6 +92,7 @@ delicious_count: 3
 # Disqus Comments
 disqus_short_name: blogsteps
 disqus_show_comment_count: false
+disqus_developer: 0
 
 # Google Analytics
 google_analytics_tracking_id: UA-37834364-1
