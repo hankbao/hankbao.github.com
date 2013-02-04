@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Living as a Sojourner]]></title>
-  <link href="http://blog.ztap.net/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Faith | Living as a Sojourner]]></title>
+  <link href="http://blog.ztap.net/blog/categories/faith/atom.xml" rel="self"/>
   <link href="http://blog.ztap.net/"/>
   <updated>2013-02-04T19:08:48+08:00</updated>
   <id>http://blog.ztap.net/</id>
@@ -18,8 +18,7 @@
     <link href="http://blog.ztap.net/2013/02/living-as-a-sojourner/"/>
     <updated>2013-02-04T18:59:00+08:00</updated>
     <id>http://blog.ztap.net/2013/02/living-as-a-sojourner</id>
-    <content type="html"><![CDATA[<blockquote><p>The land shall not be sold for ever: for the land is mine; for ye are strangers and sojourners with me.</p><footer><strong>Leviticus 25:23</strong> <cite><a href='http://www.kingjamesbibleonline.org/1611_Leviticus-25-23/'>KJV</a></cite></footer></blockquote>
-
+    <content type="html"><![CDATA[<p><blockquote><p>The land shall not be sold for ever: for the land is mine; for ye are strangers and sojourners with me.</p><footer><strong>Leviticus 25:23</strong> <cite><a href='http://www.kingjamesbibleonline.org/1611_Leviticus-25-23/'>KJV</a></cite></footer></blockquote></p>
 ]]></content>
   </entry>
   
