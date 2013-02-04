@@ -78,7 +78,7 @@ google_plus_one_size: medium
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
 googleplus_user: '110796053738665792614'
-googleplus_hidden: false
+googleplus_hidden: true
 googleplus_image_size: 32
 
 # Pinboard
