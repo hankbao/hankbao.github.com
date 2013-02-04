@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Hank's Steps]]></title>
-  <link href="http://hankbao.github.com/atom.xml" rel="self"/>
-  <link href="http://hankbao.github.com/"/>
-  <updated>2013-02-04T17:12:22+08:00</updated>
-  <id>http://hankbao.github.com/</id>
+  <link href="http://blog.ztap.net/atom.xml" rel="self"/>
+  <link href="http://blog.ztap.net/"/>
+  <updated>2013-02-04T17:23:10+08:00</updated>
+  <id>http://blog.ztap.net/</id>
   <author>
     <name><![CDATA[Hank Bao]]></name>
     
