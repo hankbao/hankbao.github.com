@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
+        <loc>http://blog.ztap.net/about/</loc>
+        <lastmod>2013-02-04T18:21:45+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://blog.ztap.net/blog/archives/</loc>
         <lastmod>2013-02-04T16:07:58+08:00</lastmod>
     </url>
