@@ -3,7 +3,7 @@
 # ----------------------- #
 
 url: http://blog.ztap.net
-title: Hank's Steps
+title: Steps of a Sojourner
 subtitle: A place to trace my steps.
 author: Hank Bao
 simple_search: https://google.com/search
@@ -27,7 +27,7 @@ email:
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /
-permalink: /blog/:year/:month/:day/:title/
+permalink: /:year/:month/:title/
 source: source
 destination: public
 plugins: plugins
