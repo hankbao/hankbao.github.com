@@ -6,9 +6,15 @@ comments: true
 sharing: true
 footer: true
 ---
-<p>I'm Hank BAO. Currently I'm working as a software developer at PPTV and focusing on iOS & OS X. You can reach me by the following links.</p>
+I'm Hank BAO. Currently I'm working as a software developer at PPTV and focusing on iOS & OS X. You can reach me by the following links.
 
 ## Links
-- <a href="https://github.com/hankbao">GitHub</a>
-- <a href="https://twitter.com/hankbao">Twitter</a>
-- <a href="http://weibo.com/hankbao">Weibo</a>
+- [GitHub]
+- [Twitter]
+- [Weibo]
+- [Instagram]
+
+[GitHub]: https://github.com/hankbao
+[Twitter]: https://twitter.com/hankbao
+[Weibo]: http://weibo.com/hankbao
+[Instagram]: http://instagram.com/hankbao84
