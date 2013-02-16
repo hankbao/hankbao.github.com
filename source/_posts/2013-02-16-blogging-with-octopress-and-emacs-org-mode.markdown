@@ -3,7 +3,7 @@ layout: post
 title: "Blogging with Octopress and Emacs org-mode"
 date: 2013-02-16 18:24
 comments: true
-categories: emacs, org-mode
+categories: emacs org-mode
 ---
 
 <p>
