@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emacs | Living as a Sojourner]]></title>
   <link href="http://blog.ztap.net/blog/categories/emacs/atom.xml" rel="self"/>
   <link href="http://blog.ztap.net/"/>
-  <updated>2013-02-16T19:51:43+08:00</updated>
+  <updated>2013-02-16T19:54:36+08:00</updated>
   <id>http://blog.ztap.net/</id>
   <author>
     <name><![CDATA[Hank Bao]]></name>
@@ -28,6 +28,9 @@ Obviously the learning curve of Emacs is very high. IMO even higher than Vim. Af
 </p>
 
 
+<!-- more -->
+
+
 <p>
 Recently I opened a <a href="http://blog.ztap.net">blog</a> on <a href="http://pages.github.com">github pages</a> with <a href="http://octopress.org">Octopress</a>. The Octopress is handy and the syntax of markdown is just similar to org-mode. So why not write blogs in org-mode and publish them with Octopress? After googled on the Internet, I found some nice articles to help me blogging with Octopress and org-mode.
 </p>
@@ -36,9 +39,6 @@ Recently I opened a <a href="http://blog.ztap.net">blog</a> on <a href="http://p
 <p>
 So here comes my product. :)
 </p>
-
-
-<!-- more -->
 
 
 <p>
