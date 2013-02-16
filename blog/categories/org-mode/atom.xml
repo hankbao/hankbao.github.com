@@ -4,7 +4,7 @@
   <title><![CDATA[Category: org-mode | Living as a Sojourner]]></title>
   <link href="http://blog.ztap.net/blog/categories/org-mode/atom.xml" rel="self"/>
   <link href="http://blog.ztap.net/"/>
-  <updated>2013-02-16T19:28:37+08:00</updated>
+  <updated>2013-02-16T19:51:43+08:00</updated>
   <id>http://blog.ztap.net/</id>
   <author>
     <name><![CDATA[Hank Bao]]></name>
@@ -38,20 +38,18 @@ So here comes my product. :)
 </p>
 
 
+<!-- more -->
+
+
 <p>
 <b>Thanks to</b>:
 </p>
 
 
 <ul>
-<li>
-<ul>
 <li>paphus and his article <a href="http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/">Introducing Octopress Blogging for Org-Mode</a>
 </li>
 <li>xeonxu and his article <a href="http://blog.xeonxu.info/blog/2012/09/05/you-hua-shi-yong-orgmodefa-bu-octopressde-fang-fa/">优化使用Orgmode发布Octopress的方法</a>
-</li>
-</ul>
-
 </li>
 </ul>
 
