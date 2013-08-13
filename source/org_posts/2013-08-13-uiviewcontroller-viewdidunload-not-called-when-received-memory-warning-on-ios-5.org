@@ -10,7 +10,7 @@ categories: [iOS, memory warning, UIViewController]
 
 Wat? iOS 5? Are you serious?
 
-Yea, I know that your shining iPhone 5 is running the latest iOS 7 beta nowdays. But still there are customers haveing some app we wrote previously running on their legacy devices. Especially considering that the booming market of jailbroken devices in China, dropping support for legacy OS is not a easy decision anyway. 
+Yea, I know that your shining iPhone 5 is running the latest iOS 7 beta nowdays. But still there are customers having some app we wrote and sticking on old devices. Especially considering that the booming market of jailbroken devices in China, dropping support for legacy OS is not a easy decision anyway. 
 
 Long story short. Recently we found some UIViewController subclasses in our app don't unload their views when they received a memory warning. After diagnosis, it turns out that only some of view controllers instantiated without a XIB file behave abnormally.
 
@@ -22,4 +22,4 @@ UIViewController's view loading mechanism is well documented in the [[http://dev
 
 In the third case, UIViewController will create an empty UIView object and assigned it to its view property. But for some unknown reason, it doesn't unload it when received a memory warning. Therefore your viewDidUnload method will certainly not get called. This is a weird and undocumented behavior.
 
-After overriding loadView method to create and set view property, all our view controllers behave correctly now.
+After overriding loadView method to create and set view, all our view controllers behave correctly on iOS 5 now.
