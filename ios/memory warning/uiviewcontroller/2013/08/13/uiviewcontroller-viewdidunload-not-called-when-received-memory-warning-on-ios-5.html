@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>-[UIViewController viewDidUnload] not Called when Received a Memory Warning on iOS 5</title>
+  <meta name="description" content="Wat? iOS 5? Are you serious?Yea, I know that your shining iPhone 5 is running the latest iOS 7 beta nowdays. But still there are customers having some app we...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://blog.ztap.net/ios/memory%20warning/uiviewcontroller/2013/08/13/uiviewcontroller-viewdidunload-not-called-when-received-memory-warning-on-ios-5.html">
+  <link rel="alternate" type="application/rss+xml" title="Living as a Sojourner" href="http://blog.ztap.net/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Living as a Sojourner</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about.html">About Me</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">-[UIViewController viewDidUnload] not Called when Received a Memory Warning on iOS 5</h1>
+    <p class="post-meta">Aug 13, 2013</p>
+  </header>
+
+  <article class="post-content">
+    <p>
+Wat? iOS 5? Are you serious?
+</p>
+<p>
+Yea, I know that your shining iPhone 5 is running the latest iOS 7 beta nowdays. But still there are customers having some app we wrote and sticking on old devices. Especially considering that the booming market of jailbroken devices in China, dropping support for legacy OS is not a easy decision anyway. 
+</p>
+<p>
+Long story short. Recently we found some UIViewController subclasses in our app don't unload their views when they received a memory warning. After diagnosis, it turns out that only some of view controllers instantiated without a XIB file behave abnormally.
+</p>
+<!-- more -->
+<p>
+UIViewController's view loading mechanism is well documented in the <a href="http://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ViewLoadingandUnloading/ViewLoadingandUnloading.html#//apple_ref/doc/uid/TP40007457-CH10-SW2">View Controller Programming Guide for iOS</a>. It instantiates its view in loadView method either by loading it from a associated XIB/storyboard file or creating it programmatically. Actually there are three different cases:
+</p>
+<ul>
+<li>view controller associated with a XIB/storyboard file
+</li>
+<li>view controller without a XIB/storyboard file but overriding loadView method to create a view programmatically
+</li>
+<li>view controller without a XIB/storyboard file and not overriding loadView method
+</li>
+</ul>
+
+<p>
+In the third case, UIViewController will create an empty UIView object and assigned it to its view property. But for some unknown reason, it doesn't unload it when received a memory warning. Therefore your viewDidUnload method will certainly not get called. This is a weird and undocumented behavior.
+</p>
+<p>
+After overriding loadView method to create and set view, all our view controllers behave correctly on iOS 5 now.
+</p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Living as a Sojourner</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Living as a Sojourner</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">This is Hank Bao's personal blog. I've recently joined a startup Pubu.im.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
