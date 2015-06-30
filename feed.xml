@@ -5,15 +5,15 @@
     <description>This is Hank Bao&#39;s personal blog.</description>
     <link>http://blog.ztap.net/</link>
     <atom:link href="http://blog.ztap.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Jul 2015 00:26:55 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Jul 2015 00:26:55 +0800</lastBuildDate>
+    <pubDate>Wed, 01 Jul 2015 00:29:37 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Jul 2015 00:29:37 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>函数式 Swift 代码片段 #1: 分解 Array［译］</title>
         <description>&lt;h1 id=&quot;swift--1--array&quot;&gt;函数式 Swift 代码片段 #1: 分解 Array［译］&lt;/h1&gt;
 &lt;p&gt;下面的代码把一个 &lt;code&gt;Array&lt;/code&gt; 分解为 &lt;code&gt;Array&lt;/code&gt; 第一个元素和剩余部分，并放入一个 &lt;code&gt;Tuple&lt;/code&gt;。如果 &lt;code&gt;Array&lt;/code&gt; 为空，则返回 &lt;code&gt;nil&lt;/code&gt;:
-&lt;code&gt;Swift
+&lt;code&gt;
 extension Array {
     var decompose : (head: T, tail: [T])? {
         return (count &amp;gt; 0) ? (self[0], Array(self[1..&amp;lt;count])) : nil
@@ -21,7 +21,7 @@ extension Array {
 }
 &lt;/code&gt;
 当上述代码和&lt;code&gt;if let&lt;/code&gt;语句或者模式匹配结合会非常有用。举例来说，这是递归形式的&lt;code&gt;sum&lt;/code&gt;：
-&lt;code&gt;Swift
+&lt;code&gt;
 func sum(xs: [Int]) -&amp;gt; Int {
     if let (head, tail) = xs.decompose {
         return head + sum(tail)

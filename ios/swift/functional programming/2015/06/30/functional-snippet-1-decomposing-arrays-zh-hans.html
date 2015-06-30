@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>函数式 Swift 代码片段 #1: 分解 Array［译］</title>
-  <meta name="description" content="函数式 Swift 代码片段 #1: 分解 Array［译］下面的代码把一个 Array 分解为 Array 第一个元素和剩余部分，并放入一个 Tuple。如果 Array 为空，则返回 nil:Swiftextension Array {    var decompose : (head: T, tail: [...">
+  <meta name="description" content="函数式 Swift 代码片段 #1: 分解 Array［译］下面的代码把一个 Array 分解为 Array 第一个元素和剩余部分，并放入一个 Tuple。如果 Array 为空，则返回 nil:extension Array {    var decompose : (head: T, tail: [T])? ...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://blog.ztap.net/ios/swift/functional%20programming/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html">
@@ -64,7 +64,7 @@
   <article class="post-content">
     <h1 id="swift--1--array">函数式 Swift 代码片段 #1: 分解 Array［译］</h1>
 <p>下面的代码把一个 <code>Array</code> 分解为 <code>Array</code> 第一个元素和剩余部分，并放入一个 <code>Tuple</code>。如果 <code>Array</code> 为空，则返回 <code>nil</code>:
-<code>Swift
+<code>
 extension Array {
     var decompose : (head: T, tail: [T])? {
         return (count &gt; 0) ? (self[0], Array(self[1..&lt;count])) : nil
@@ -72,7 +72,7 @@ extension Array {
 }
 </code>
 当上述代码和<code>if let</code>语句或者模式匹配结合会非常有用。举例来说，这是递归形式的<code>sum</code>：
-<code>Swift
+<code>
 func sum(xs: [Int]) -&gt; Int {
     if let (head, tail) = xs.decompose {
         return head + sum(tail)
