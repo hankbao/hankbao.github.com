@@ -5,12 +5,12 @@
     <description>This is Hank Bao&#39;s personal blog.</description>
     <link>http://blog.ztap.net/</link>
     <atom:link href="http://blog.ztap.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Jul 2015 00:34:31 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Jul 2015 00:34:31 +0800</lastBuildDate>
+    <pubDate>Wed, 01 Jul 2015 00:35:35 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Jul 2015 00:35:35 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
-        <title>函数式 Swift 代码片段 #1: 分解 Array［译］</title>
+        <title>［译］函数式 Swift 代码片段 #1: 分解 Array</title>
         <description>&lt;h1 id=&quot;swift--1--array&quot;&gt;函数式 Swift 代码片段 #1: 分解 Array［译］&lt;/h1&gt;
 &lt;p&gt;下面的代码把一个 &lt;code&gt;Array&lt;/code&gt; 分解为 &lt;code&gt;Array&lt;/code&gt; 第一个元素和剩余部分，并放入一个 &lt;code&gt;Tuple&lt;/code&gt;。如果 &lt;code&gt;Array&lt;/code&gt; 为空，则返回 &lt;code&gt;nil&lt;/code&gt;:&lt;/p&gt;
 
