@@ -5,8 +5,8 @@
     <description>This is Hank Bao&#39;s personal blog. I&#39;ve recently joined a startup Pubu.im.</description>
     <link>http://blog.ztap.net/</link>
     <atom:link href="http://blog.ztap.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Jul 2015 00:08:59 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Jul 2015 00:08:59 +0800</lastBuildDate>
+    <pubDate>Wed, 01 Jul 2015 00:15:09 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Jul 2015 00:15:09 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -35,9 +35,15 @@ func sum(xs: [Int]) -&amp;gt; Int {
 &lt;p&gt;&lt;a href=&quot;http://www.objc.io/snippets/1.html&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 30 Jun 2015 23:45:34 +0800</pubDate>
-        <link>http://blog.ztap.net/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</link>
-        <guid isPermaLink="true">http://blog.ztap.net/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</guid>
+        <link>http://blog.ztap.net/ios/swift/functional%20programming/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</link>
+        <guid isPermaLink="true">http://blog.ztap.net/ios/swift/functional%20programming/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</guid>
         
+        
+        <category>ios</category>
+        
+        <category>swift</category>
+        
+        <category>functional programming</category>
         
       </item>
     
