@@ -5,7 +5,7 @@ date: 2015-06-30T23:45:34+08:00
 comments: true
 categories: [iOS, swift, functional programming]
 ---
-#函数式 Swift 代码片段 #1: 分解 Array［译］
+#［译］函数式 Swift 代码片段 #1: 分解 Array
 下面的代码把一个 `Array` 分解为 `Array` 第一个元素和剩余部分，并放入一个 `Tuple`。如果 `Array` 为空，则返回 `nil`:
 
     extension Array {
