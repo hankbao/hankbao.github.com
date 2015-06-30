@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "functional-snippet-1-decomposing-arrays-zh-Hans"
+title: "函数式 Swift 代码片段 #1: 分解 Array［译］"
 date: 2015-06-30T23:45:34+08:00
 comments: true
 categories: [iOS, swift, functional programming]

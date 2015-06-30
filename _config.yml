@@ -3,11 +3,10 @@
 # ----------------------- #
 
 url: http://blog.ztap.net
-title: Living as a Sojourner
+# title: Living as a Sojourner
 subtitle: A place to trace my steps.
 author: Hank Bao
 simple_search: https://google.com/search
-description: This is Hank Bao's personal blog. I've recently joined a startup Pubu.im.
 
 # Default extension for new posts and pages
 post_ext: md
