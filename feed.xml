@@ -5,43 +5,42 @@
     <description>This is Hank Bao&#39;s personal blog.</description>
     <link>http://blog.ztap.net/</link>
     <atom:link href="http://blog.ztap.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Jul 2015 09:39:20 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Jul 2015 09:39:20 +0800</lastBuildDate>
+    <pubDate>Wed, 01 Jul 2015 09:46:13 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Jul 2015 09:46:13 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>［译］函数式 Swift 代码片段 #1: 分解 Array</title>
-        <description>&lt;p&gt;#［译］函数式 Swift 代码片段 #1: 分解 Array&lt;br /&gt;
-下面的代码把一个 &lt;code&gt;Array&lt;/code&gt; 分解为 &lt;code&gt;Array&lt;/code&gt; 第一个元素和剩余部分，并放入一个 &lt;code&gt;Tuple&lt;/code&gt;。如果 &lt;code&gt;Array&lt;/code&gt; 为空，则返回 &lt;code&gt;nil&lt;/code&gt;:&lt;br /&gt;
-&lt;code&gt;
-extension Array {
-    var decompose : (head: T, tail: [T])? {
-        return (count &amp;gt; 0) ? (self[0], Array(self[1..&amp;lt;count])) : nil
-    }
-}
-&lt;/code&gt;&lt;br /&gt;
-当上述代码和&lt;code&gt;if let&lt;/code&gt;语句或者模式匹配结合时会非常有用。举例来说，这是递归形式的&lt;code&gt;sum&lt;/code&gt;：&lt;br /&gt;
-&lt;code&gt;
-func sum(xs: [Int]) -&amp;gt; Int {
-    if let (head, tail) = xs.decompose {
-        return head + sum(tail)
-    } else {
-        return 0
-    }
-}
-&lt;/code&gt;&lt;br /&gt;
-你可以非常容易地为其他类型（比如 &lt;code&gt;Dictionary&lt;/code&gt; 或 &lt;code&gt;String&lt;/code&gt;）定义自己的 &lt;code&gt;decompose&lt;/code&gt; 函数。&lt;/p&gt;
+        <description>&lt;h1&gt;［译］函数式 Swift 代码片段 #1: 分解 Array&lt;/h1&gt;
+
+&lt;p&gt;下面的代码把一个 &lt;code&gt;Array&lt;/code&gt; 分解为 &lt;code&gt;Array&lt;/code&gt; 第一个元素和剩余部分，并放入一个 &lt;code&gt;Tuple&lt;/code&gt;。如果 &lt;code&gt;Array&lt;/code&gt; 为空，则返回 &lt;code&gt;nil&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;decompose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;当上述代码和&lt;code&gt;if let&lt;/code&gt;语句或者模式匹配结合时会非常有用。举例来说，这是递归形式的&lt;code&gt;sum&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;xs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decompose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;你可以非常容易地为其他类型（比如 &lt;code&gt;Dictionary&lt;/code&gt; 或 &lt;code&gt;String&lt;/code&gt;）定义自己的 &lt;code&gt;decompose&lt;/code&gt; 函数。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.objc.io/snippets/1.html&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 30 Jun 2015 23:45:34 +0800</pubDate>
-        <link>http://blog.ztap.net/swift/functional%20programming/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</link>
-        <guid isPermaLink="true">http://blog.ztap.net/swift/functional%20programming/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</guid>
+        <link>http://blog.ztap.net/functional%20programming/swift/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</link>
+        <guid isPermaLink="true">http://blog.ztap.net/functional%20programming/swift/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</guid>
         
-        
-        <category>swift</category>
         
         <category>functional programming</category>
+        
+        <category>swift</category>
         
       </item>
     
@@ -50,16 +49,21 @@ func sum(xs: [Int]) -&amp;gt; Int {
         <description>&lt;p&gt;
 Wat? iOS 5? Are you serious?
 &lt;/p&gt;
+
 &lt;p&gt;
 Yea, I know that your shining iPhone 5 is running the latest iOS 7 beta nowdays. But still there are customers having some app we wrote and sticking on old devices. Especially considering that the booming market of jailbroken devices in China, dropping support for legacy OS is not a easy decision anyway. 
 &lt;/p&gt;
+
 &lt;p&gt;
 Long story short. Recently we found some UIViewController subclasses in our app don&#39;t unload their views when they received a memory warning. After diagnosis, it turns out that only some of view controllers instantiated without a XIB file behave abnormally.
 &lt;/p&gt;
+
 &lt;!-- more --&gt;
+
 &lt;p&gt;
 UIViewController&#39;s view loading mechanism is well documented in the &lt;a href=&quot;http://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ViewLoadingandUnloading/ViewLoadingandUnloading.html#//apple_ref/doc/uid/TP40007457-CH10-SW2&quot;&gt;View Controller Programming Guide for iOS&lt;/a&gt;. It instantiates its view in loadView method either by loading it from a associated XIB/storyboard file or creating it programmatically. Actually there are three different cases:
 &lt;/p&gt;
+
 &lt;ul&gt;
 &lt;li&gt;view controller associated with a XIB/storyboard file
 &lt;/li&gt;
@@ -72,6 +76,7 @@ UIViewController&#39;s view loading mechanism is well documented in the &lt;a hr
 &lt;p&gt;
 In the third case, UIViewController will create an empty UIView object and assigned it to its view property. But for some unknown reason, it doesn&#39;t unload it when received a memory warning. Therefore your viewDidUnload method will certainly not get called. This is a weird and undocumented behavior.
 &lt;/p&gt;
+
 &lt;p&gt;
 After overriding loadView method to create and set view, all our view controllers behave correctly on iOS 5 now.
 &lt;/p&gt;
@@ -94,26 +99,29 @@ After overriding loadView method to create and set view, all our view controller
         <description>&lt;p&gt;
 After using Vim as my default editor for about 2 years, I decide to switch to Emacs. There isn&#39;t any special reason for this migration. In fact, it&#39;s just becasue something kept agitating in my heart. I want to try some new stuff.
 &lt;/p&gt;
+
 &lt;p&gt;
 Obviously the learning curve of Emacs is very high. IMO even higher than Vim. After tried to learn Vim 2 years ago, I realized that the keypoint to master those heavy weapon is using them to destory some real targets. I&#39;ve used Vim to code since 2 years ago and turned nearly every general key-bindings to the muscle memory. I want to replicate that process with Emacs and the famous &lt;a href=&quot;http://orgmode.org&quot;&gt;org-mode&lt;/a&gt;.
 &lt;/p&gt;
+
 &lt;!-- more --&gt;
+
 &lt;p&gt;
 Recently I started a &lt;a href=&quot;http://blog.ztap.net&quot;&gt;blog&lt;/a&gt; on &lt;a href=&quot;http://pages.github.com&quot;&gt;github pages&lt;/a&gt; with &lt;a href=&quot;http://octopress.org&quot;&gt;Octopress&lt;/a&gt;. The Octopress is handy and the syntax of markdown is just similar to org-mode. So why not write blogs in org-mode and publish them with Octopress? After googled on the Internet, I found some nice articles to help me blogging with Octopress and org-mode.
 &lt;/p&gt;
+
 &lt;p&gt;
 So here comes my product. :)
 &lt;/p&gt;
-&lt;p&gt;
+
+&lt;p&gt;&lt;p&gt;
 &lt;b&gt;Thanks to&lt;/b&gt;:
-&lt;/p&gt;
-&lt;ul&gt;
+&lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;paphus and his article &lt;a href=&quot;http://blog.paphus.com/blog/2012/08/01/introducing-octopress-blogging-for-org-mode/&quot;&gt;Introducing Octopress Blogging for Org-Mode&lt;/a&gt;
 &lt;/li&gt;
 &lt;li&gt;xeonxu and his article &lt;a href=&quot;http://blog.xeonxu.info/blog/2012/09/05/you-hua-shi-yong-orgmodefa-bu-octopressde-fang-fa/&quot;&gt;优化使用Orgmode发布Octopress的方法&lt;/a&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-
+&lt;/ul&gt;&lt;/p&gt;
 </description>
         <pubDate>Sat, 16 Feb 2013 18:24:00 +0800</pubDate>
         <link>http://blog.ztap.net/emacs/org-mode/2013/02/16/blogging-with-octopress-and-emacs-org-mode.html</link>
@@ -129,11 +137,9 @@ So here comes my product. :)
       <item>
         <title>Living as a sojourner</title>
         <description>&lt;blockquote&gt;
-  &lt;p&gt;The land shall not be sold for ever: for the land is mine; for ye are strangers and sojourners with me.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;The land shall not be sold for ever: for the land is mine; for ye are strangers and sojourners with me.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;– &lt;a href=&quot;http://www.kingjamesbibleonline.org/1611_Leviticus-25-23/&quot;&gt;Leviticus 25:23 KJV&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;-- &lt;a href=&quot;http://www.kingjamesbibleonline.org/1611_Leviticus-25-23/&quot;&gt;Leviticus 25:23 KJV&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </description>
         <pubDate>Mon, 04 Feb 2013 18:59:00 +0800</pubDate>
