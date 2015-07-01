@@ -28,5 +28,6 @@ func sum(xs: [Int]) -> Int {
 ```
 
 你可以非常容易地为其他类型（比如 `Dictionary` 或 `String`）定义自己的 `decompose` 函数。
+
 ---
 本文翻译自：http://www.objc.io/snippets/1.html
