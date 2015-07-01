@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "函数式 Swift 代码片段 #2:  函数组合"
+title: "函数式 Swift 代码片段 #2: 函数组合"
 date: 2015-07-01T10:51:41+08:00
 comments: true
 categories: [functional programming, swift, zh-Hans]
