@@ -5,13 +5,13 @@
     <description>This is Hank Bao&#39;s personal blog.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Jul 2015 23:52:05 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Jul 2015 23:52:05 +0800</lastBuildDate>
+    <pubDate>Wed, 01 Jul 2015 23:55:43 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Jul 2015 23:55:43 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>函数式 Swift 代码片段 #2:  函数组合</title>
-        <description>&lt;p&gt;在函数式编程中，我们常常想把几个短小、独立的函数组成一个新的函数。举例来说，假设我们有个函数负责从 URL 获取内容，又有个函数负责把&lt;code&gt;String&lt;/code&gt;按行转换成&lt;code&gt;Array&lt;/code&gt;，另有个函数负责计算元素的数目。我们可以把这些函数组合成一个可以计算 URL 对应内容中所含的行数的新函数：&lt;/p&gt;
+        <description>&lt;p&gt;在函数式编程中，我们常常想把几个短小、独立的函数组成一个新的函数。举例来说，假设我们有个函数负责从 URL 获取内容，又有个函数负责把 &lt;code&gt;String&lt;/code&gt; 按行转换成 &lt;code&gt;Array&lt;/code&gt;，另有个函数负责计算元素的数目。我们可以把这些函数组合成一个可以计算 URL 对应内容中所含的行数的新函数：&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getContents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;NSString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;contentsOfURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;NSURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
                     &lt;span class=&quot;nl&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NSUTF8StringEncoding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
