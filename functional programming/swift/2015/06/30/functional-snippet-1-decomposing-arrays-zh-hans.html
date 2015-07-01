@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>［译］函数式 Swift 代码片段 #1: 分解 Array</title>
-  <meta name="description" content="［译］函数式 Swift 代码片段 #1: 分解 Array下面的代码把一个 Array 分解为 Array 第一个元素和剩余部分，并放入一个 Tuple。如果 Array 为空，则返回 nil:">
+  <meta name="description" content="下面的代码把一个 Array 分解为 Array 第一个元素和剩余部分，并放入一个 Tuple。如果 Array 为空，则返回 nil:">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="/functional%20programming/swift/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html">
@@ -62,9 +62,7 @@
   </header>
 
   <article class="post-content">
-    <h1>［译］函数式 Swift 代码片段 #1: 分解 Array</h1>
-
-<p>下面的代码把一个 <code>Array</code> 分解为 <code>Array</code> 第一个元素和剩余部分，并放入一个 <code>Tuple</code>。如果 <code>Array</code> 为空，则返回 <code>nil</code>:</p>
+    <p>下面的代码把一个 <code>Array</code> 分解为 <code>Array</code> 第一个元素和剩余部分，并放入一个 <code>Tuple</code>。如果 <code>Array</code> 为空，则返回 <code>nil</code>:</p>
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">extension</span> <span class="n">Array</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nl">decompose</span> <span class="p">:</span> <span class="p">(</span><span class="nl">head</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="nl">tail</span><span class="p">:</span> <span class="p">[</span><span class="n">T</span><span class="p">])</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="p">(</span><span class="nb">self</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Array</span><span class="p">(</span><span class="nb">self</span><span class="p">[</span><span class="mf">1.</span><span class="p">.</span><span class="o">&lt;</span><span class="n">count</span><span class="p">]))</span> <span class="o">:</span> <span class="nb">nil</span>

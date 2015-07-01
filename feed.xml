@@ -5,15 +5,13 @@
     <description>This is Hank Bao&#39;s personal blog.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Jul 2015 09:53:33 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Jul 2015 09:53:33 +0800</lastBuildDate>
+    <pubDate>Wed, 01 Jul 2015 09:54:18 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Jul 2015 09:54:18 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>［译］函数式 Swift 代码片段 #1: 分解 Array</title>
-        <description>&lt;h1&gt;［译］函数式 Swift 代码片段 #1: 分解 Array&lt;/h1&gt;
-
-&lt;p&gt;下面的代码把一个 &lt;code&gt;Array&lt;/code&gt; 分解为 &lt;code&gt;Array&lt;/code&gt; 第一个元素和剩余部分，并放入一个 &lt;code&gt;Tuple&lt;/code&gt;。如果 &lt;code&gt;Array&lt;/code&gt; 为空，则返回 &lt;code&gt;nil&lt;/code&gt;:&lt;/p&gt;
+        <description>&lt;p&gt;下面的代码把一个 &lt;code&gt;Array&lt;/code&gt; 分解为 &lt;code&gt;Array&lt;/code&gt; 第一个元素和剩余部分，并放入一个 &lt;code&gt;Tuple&lt;/code&gt;。如果 &lt;code&gt;Array&lt;/code&gt; 为空，则返回 &lt;code&gt;nil&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;decompose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;
