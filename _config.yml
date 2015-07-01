@@ -2,12 +2,57 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://blog.ztap.net
+#url: http://blog.ztap.net
 title: Living as a Sojourner
-subtitle: A place to trace my steps.
+subtitle: # A place to trace my steps.
 author: Hank Bao
-simple_search: https://google.com/search
 description: This is Hank Bao's personal blog. # I've recently joined a startup Pubu.im.
+
+search: google
+
+sharing:
+  - facebook
+  - twitter
+  - gplus
+  - email
+
+# Defaults to sharing with links (for speed and privacy)
+# To use javascript share buttons, set share_with: buttons
+share_with: links
+
+# Embed comments, options: false, facebook, disqus
+comments: disqus
+
+# Center the text in post and page headings.
+center_headings: true
+
+# Link labels
+permalink_label: "Permalink"
+read_more_label: "Continue Reading →"
+
+# Show excerpts on post index
+excerpt_posts: true
+# Excerpt linkposts on index
+excerpt_linkposts: false
+
+# Conversion
+markdown: redcarpet
+highlighter: pygments
+lsi: false
+excerpt_separator: "\n\n"
+
+# Markdown Processors
+redcarpet:
+    extensions: ["autolink", "fenced_code_blocks"]
+
+# kramdown:
+#     input: GFM
+#     auto_ids: true
+#     footnote_nr: 1
+#     entity_output: as_char
+#     toc_levels: 1..6
+#     smart_quotes: lsquo,rsquo,ldquo,rdquo
+#     enable_coderay: false
 
 # Default extension for new posts and pages
 post_ext: md
