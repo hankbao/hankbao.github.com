@@ -5,12 +5,12 @@
     <description>This is Hank Bao&#39;s personal blog.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 01 Jul 2015 09:54:18 +0800</pubDate>
-    <lastBuildDate>Wed, 01 Jul 2015 09:54:18 +0800</lastBuildDate>
+    <pubDate>Wed, 01 Jul 2015 09:56:45 +0800</pubDate>
+    <lastBuildDate>Wed, 01 Jul 2015 09:56:45 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
-        <title>［译］函数式 Swift 代码片段 #1: 分解 Array</title>
+        <title>函数式 Swift 代码片段 #1: 分解 Array</title>
         <description>&lt;p&gt;下面的代码把一个 &lt;code&gt;Array&lt;/code&gt; 分解为 &lt;code&gt;Array&lt;/code&gt; 第一个元素和剩余部分，并放入一个 &lt;code&gt;Tuple&lt;/code&gt;。如果 &lt;code&gt;Array&lt;/code&gt; 为空，则返回 &lt;code&gt;nil&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Array&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;decompose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -29,16 +29,18 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;你可以非常容易地为其他类型（比如 &lt;code&gt;Dictionary&lt;/code&gt; 或 &lt;code&gt;String&lt;/code&gt;）定义自己的 &lt;code&gt;decompose&lt;/code&gt; 函数。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://www.objc.io/snippets/1.html&quot;&gt;原文链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文翻译自：&lt;a href=&quot;http://www.objc.io/snippets/1.html&quot;&gt;http://www.objc.io/snippets/1.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 30 Jun 2015 23:45:34 +0800</pubDate>
-        <link>/functional%20programming/swift/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</link>
-        <guid isPermaLink="true">/functional%20programming/swift/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</guid>
+        <link>/functional%20programming/swift/zh-hans/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</link>
+        <guid isPermaLink="true">/functional%20programming/swift/zh-hans/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</guid>
         
         
         <category>functional programming</category>
         
         <category>swift</category>
+        
+        <category>zh-hans</category>
         
       </item>
     
