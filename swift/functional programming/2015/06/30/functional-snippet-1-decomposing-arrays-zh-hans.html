@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>［译］函数式 Swift 代码片段 #1: 分解 Array</title>
-  <meta name="description" content="［译］函数式 Swift 代码片段 #1: 分解 Array下面的代码把一个 Array 分解为 Array 第一个元素和剩余部分，并放入一个 Tuple。如果 Array 为空，则返回 nil:~~~swiftextension Array {    var decompose : (head: T, tail...">
+  <meta name="description" content="#［译］函数式 Swift 代码片段 #1: 分解 Array下面的代码把一个 Array 分解为 Array 第一个元素和剩余部分，并放入一个 Tuple。如果 Array 为空，则返回 nil:extension Array {    var decompose : (head: T, tail: [T])?...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://blog.ztap.net/ios/swift/functional%20programming/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html">
+  <link rel="canonical" href="http://blog.ztap.net/swift/functional%20programming/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html">
   <link rel="alternate" type="application/rss+xml" title="Living as a Sojourner" href="http://blog.ztap.net/feed.xml" />
 </head>
 
@@ -62,26 +62,25 @@
   </header>
 
   <article class="post-content">
-    <h1>［译］函数式 Swift 代码片段 #1: 分解 Array</h1>
-
-<p>下面的代码把一个 <code>Array</code> 分解为 <code>Array</code> 第一个元素和剩余部分，并放入一个 <code>Tuple</code>。如果 <code>Array</code> 为空，则返回 <code>nil</code>:
-~~~swift
+    <p>#［译］函数式 Swift 代码片段 #1: 分解 Array<br />
+下面的代码把一个 <code>Array</code> 分解为 <code>Array</code> 第一个元素和剩余部分，并放入一个 <code>Tuple</code>。如果 <code>Array</code> 为空，则返回 <code>nil</code>:<br />
+<code>
 extension Array {
     var decompose : (head: T, tail: [T])? {
-        return (count &gt; 0) ? (self[0], Array(self[1..<count])) : nil
+        return (count &gt; 0) ? (self[0], Array(self[1..&lt;count])) : nil
     }
 }
-~~~
-当上述代码和`if let`语句或者模式匹配结合时会非常有用。举例来说，这是递归形式的`sum`：
-~~~swift
-func sum(xs: [Int]) -> Int {
+</code><br />
+当上述代码和<code>if let</code>语句或者模式匹配结合时会非常有用。举例来说，这是递归形式的<code>sum</code>：<br />
+<code>
+func sum(xs: [Int]) -&gt; Int {
     if let (head, tail) = xs.decompose {
         return head + sum(tail)
     } else {
         return 0
     }
 }
-~~~
+</code><br />
 你可以非常容易地为其他类型（比如 <code>Dictionary</code> 或 <code>String</code>）定义自己的 <code>decompose</code> 函数。</p>
 
 <p><a href="http://www.objc.io/snippets/1.html">原文链接</a></p>
