@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>函数式 Swift 代码片段 #4: 展开并映射数组</title>
+  <meta name="description" content="在函数式编程中，在数组上调用 map 是一项基本操作。常常令人惊讶的是，map 得到的是一个元素为数组的数组，需要将其展开。在许多函数式语言中，在 map 之后再展开被定义为一个运算符。这个运算符有时候被称作 bind。它使用 map 来调用一个函数 f，然后将得到的元素为数组的数组展开。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="/functional%20programming/swift/zh-hans/2015/07/03/functional-snippet-4-flattening-and-mapping-arrays-zh-hans.html">
+  <link rel="alternate" type="application/rss+xml" title="Living as a Sojourner" href="/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Living as a Sojourner</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about.html">About Me</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">函数式 Swift 代码片段 #4: 展开并映射数组</h1>
+    <p class="post-meta">Jul 3, 2015</p>
+  </header>
+
+  <article class="post-content">
+    <p>在函数式编程中，在数组上调用 <code>map</code> 是一项基本操作。常常令人惊讶的是，<code>map</code> 得到的是一个元素为数组的数组，需要将其展开。在许多函数式语言中，在 <code>map</code> 之后再展开被定义为一个运算符。这个运算符有时候被称作 <em>bind</em>。它使用 <code>map</code> 来调用一个函数 <strong>f</strong>，然后将得到的元素为数组的数组展开。</p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kr">infix</span> <span class="kr">operator</span> <span class="o">&gt;&gt;=</span> <span class="p">{}</span>
+<span class="k">func</span> <span class="o">&gt;&gt;=&lt;</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">xs</span><span class="p">:</span> <span class="p">[</span><span class="n">A</span><span class="p">],</span> <span class="nl">f</span><span class="p">:</span> <span class="n">A</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">B</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">B</span><span class="p">]</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">xs</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">f</span><span class="p">).</span><span class="n">reduce</span><span class="p">([],</span> <span class="nl">combine</span><span class="p">:</span> <span class="o">+</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>该运算符酷炫的用法之一就是组合多个列表。举例来说，假设我们有一个扑克牌点数的列表，以及一个扑克牌花色的列表：</p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="n">ranks</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;A&quot;</span><span class="p">,</span> <span class="s">&quot;K&quot;</span><span class="p">,</span> <span class="s">&quot;Q&quot;</span><span class="p">,</span> <span class="s">&quot;J&quot;</span><span class="p">,</span> <span class="s">&quot;10&quot;</span><span class="p">,</span>
+             <span class="s">&quot;9&quot;</span><span class="p">,</span> <span class="s">&quot;8&quot;</span><span class="p">,</span> <span class="s">&quot;7&quot;</span><span class="p">,</span> <span class="s">&quot;6&quot;</span><span class="p">,</span> <span class="s">&quot;5&quot;</span><span class="p">,</span>
+             <span class="s">&quot;4&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">,</span> <span class="s">&quot;2&quot;</span><span class="p">]</span>
+<span class="k">let</span> <span class="n">suits</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;♠&quot;</span><span class="p">,</span> <span class="s">&quot;♥&quot;</span><span class="p">,</span> <span class="s">&quot;♦&quot;</span><span class="p">,</span> <span class="s">&quot;♣&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>现在，我们可以通过枚举所有的点数，将其和每种可能的花色结合来生成一个所有扑克牌的列表：</p>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">let</span> <span class="n">allCards</span> <span class="o">=</span>  <span class="n">ranks</span> <span class="o">&gt;&gt;=</span> <span class="p">{</span> <span class="n">rank</span> <span class="k">in</span>
+    <span class="n">suits</span> <span class="o">&gt;&gt;=</span> <span class="p">{</span> <span class="n">suit</span> <span class="k">in</span> <span class="p">[(</span><span class="n">rank</span><span class="p">,</span> <span class="n">suit</span><span class="p">)]</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Prints: [(A, ♠), (A, ♥), (A, ♦),</span>
+<span class="c1">//          (A, ♣), (K, ♠), ...</span>
+</code></pre></div>
+<hr>
+
+<p>本文翻译自：<a href="http://www.objc.io/snippets/4.html">Functional Snippet #4: Flattening and Mapping Arrays</a></p>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Living as a Sojourner</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Living as a Sojourner</li>
+          <li><a href="mailto:"></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">This is Hank Bao's personal blog.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

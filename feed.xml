@@ -5,9 +5,48 @@
     <description>This is Hank Bao&#39;s personal blog.</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Jul 2015 10:09:34 +0800</pubDate>
-    <lastBuildDate>Thu, 02 Jul 2015 10:09:34 +0800</lastBuildDate>
+    <pubDate>Fri, 03 Jul 2015 07:38:16 +0800</pubDate>
+    <lastBuildDate>Fri, 03 Jul 2015 07:38:16 +0800</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>函数式 Swift 代码片段 #4: 展开并映射数组</title>
+        <description>&lt;p&gt;在函数式编程中，在数组上调用 &lt;code&gt;map&lt;/code&gt; 是一项基本操作。常常令人惊讶的是，&lt;code&gt;map&lt;/code&gt; 得到的是一个元素为数组的数组，需要将其展开。在许多函数式语言中，在 &lt;code&gt;map&lt;/code&gt; 之后再展开被定义为一个运算符。这个运算符有时候被称作 &lt;em&gt;bind&lt;/em&gt;。它使用 &lt;code&gt;map&lt;/code&gt; 来调用一个函数 &lt;strong&gt;f&lt;/strong&gt;，然后将得到的元素为数组的数组展开。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;kr&quot;&gt;infix&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;operator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;=&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;xs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;xs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([],&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;combine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;该运算符酷炫的用法之一就是组合多个列表。举例来说，假设我们有一个扑克牌点数的列表，以及一个扑克牌花色的列表：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ranks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;A&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;K&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Q&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;J&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;10&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;s&quot;&gt;&amp;quot;9&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;8&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;7&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;6&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;5&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;s&quot;&gt;&amp;quot;4&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;3&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;suits&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;♠&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;♥&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;♦&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;♣&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;现在，我们可以通过枚举所有的点数，将其和每种可能的花色结合来生成一个所有扑克牌的列表：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allCards&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;ranks&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rank&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;suits&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;suit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rank&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;suit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Prints: [(A, ♠), (A, ♥), (A, ♦),&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//          (A, ♣), (K, ♠), ...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+
+&lt;p&gt;本文翻译自：&lt;a href=&quot;http://www.objc.io/snippets/4.html&quot;&gt;Functional Snippet #4: Flattening and Mapping Arrays&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 03 Jul 2015 06:45:01 +0800</pubDate>
+        <link>/functional%20programming/swift/zh-hans/2015/07/03/functional-snippet-4-flattening-and-mapping-arrays-zh-hans.html</link>
+        <guid isPermaLink="true">/functional%20programming/swift/zh-hans/2015/07/03/functional-snippet-4-flattening-and-mapping-arrays-zh-hans.html</guid>
+        
+        
+        <category>functional programming</category>
+        
+        <category>swift</category>
+        
+        <category>zh-hans</category>
+        
+      </item>
     
       <item>
         <title>函数式 Swift 代码片段 #3: 函数式快速排序</title>
@@ -26,7 +65,7 @@
 
 &lt;hr&gt;
 
-&lt;p&gt;本文翻译自：&lt;a href=&quot;http://www.objc.io/snippets/3.html&quot;&gt;http://www.objc.io/snippets/3.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文翻译自：&lt;a href=&quot;http://www.objc.io/snippets/3.html&quot;&gt;Functional Snippet #3: Functional Quicksort&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Jul 2015 00:08:58 +0800</pubDate>
         <link>/functional%20programming/swift/zh-hans/2015/07/02/functional-snippet-3-functional-quicksort-zh-hans.html</link>
@@ -69,7 +108,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;hr&gt;
 
-&lt;p&gt;本文翻译自：&lt;a href=&quot;http://www.objc.io/snippets/2.html&quot;&gt;http://www.objc.io/snippets/2.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文翻译自：&lt;a href=&quot;http://www.objc.io/snippets/2.html&quot;&gt;Functional Snippet #2: Function Composition&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 01 Jul 2015 10:51:41 +0800</pubDate>
         <link>/functional%20programming/swift/zh-hans/2015/07/01/functional-snippet-2-function-composition-zh-hans.html</link>
@@ -106,7 +145,7 @@
 
 &lt;hr&gt;
 
-&lt;p&gt;本文翻译自：&lt;a href=&quot;http://www.objc.io/snippets/1.html&quot;&gt;http://www.objc.io/snippets/1.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文翻译自：&lt;a href=&quot;http://www.objc.io/snippets/1.html&quot;&gt;Functional Snippet #1: Decomposing Arrays&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 30 Jun 2015 23:45:34 +0800</pubDate>
         <link>/functional%20programming/swift/zh-hans/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html</link>
