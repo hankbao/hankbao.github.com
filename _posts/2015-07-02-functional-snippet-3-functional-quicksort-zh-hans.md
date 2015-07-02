@@ -22,4 +22,4 @@ func qsort(input: [Int]) -> [Int] {
 这段代码建立在之前的[分解 Array](http://blog.ztap.net/functional%20programming/swift/zh-hans/2015/06/30/functional-snippet-1-decomposing-arrays-zh-hans.html) 的代码片段之上：如果数组不为空，就取第一个元素作为基准，并将剩余的元素分为两个新的数组：小于基准的元素放进第一个数组，大于等于基准的元素放进第二个数组。接着就排序第一个数组，接上基准元素，最后再接上已被排序的第二个数组。
 
 ---
-本文翻译自：http://www.objc.io/snippets/3.html
+本文翻译自：[Functional Snippet #3: Functional Quicksort](http://www.objc.io/snippets/3.html)

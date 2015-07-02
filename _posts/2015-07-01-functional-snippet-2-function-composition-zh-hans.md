@@ -39,4 +39,4 @@ linesInURL2("http://www.objc.io/books") // Returns 470
 ```
 
 ---
-本文翻译自：http://www.objc.io/snippets/2.html
+本文翻译自：[Functional Snippet #2: Function Composition](http://www.objc.io/snippets/2.html)
